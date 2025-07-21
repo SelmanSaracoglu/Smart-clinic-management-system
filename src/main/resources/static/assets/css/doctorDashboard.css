@@ -1,0 +1,25 @@
+.doctor-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.appointment-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.appointment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.appointment-card {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}

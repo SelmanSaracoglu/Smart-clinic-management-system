@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/adminDashboard.css}">
+</head>
+<body>
+    <div id="admin-header"></div>
+    <main class="admin-container">
+        <h1>
+            Admin Panel – Doctor Management
+        </h1>
+
+        <!-- Search & Filters -->
+        <section class="doctor-filters">
+            <input type="text" id="searchDoctorByName" placeholder="Search by doctor name" />
+            <select id="filterBySpecialty">
+                <option value="">All Specialties</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="General Medicine">General Medicine</option>
+                <!-- Gerekirse diğer branşlar eklenir -->
+            </select>
+
+            <select id="filterByTime">
+                <option value="">All Available Times</option>
+                <option value="Mon 10-12">Mon 10-12</option>
+                <option value="Tue 14-16">Tue 14-16</option>
+                <option value="Wed 09-11">Wed 09-11</option>
+                <option value="Thu 13-15">Thu 13-15</option>
+                <option value="Fri 14-16">Fri 14-16</option>
+            </select>
+
+            <button id="openAddDoctorModal">Add Doctor</button>
+        </section>
+        <!-- 👨‍⚕️ Doctor List Section -->
+        <section id="doctorList" class="doctor-list">
+            <!-- JS ile doktor kartları buraya basılacak -->
+        </section>
+    </main>
+
+    <div id="addDoctorModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="closeAddDoctorModal">&times;</span>
+            <h2>Add New Doctor</h2>
+            <form id="addDoctorForm">
+                <input type="text" id="newDoctorFirstName" placeholder="First Name" required />
+                <input type="text" id="newDoctorLastName" placeholder="Last Name" required />
+                <input type="text" id="newDoctorSpecialty" placeholder="Specialization" required />
+                <input type="email" id="newDoctorEmail" placeholder="Email" required />
+                <input type="text" id="newDoctorPhone" placeholder="Phone" />
+                <input type="text" id="newDoctorUsername" placeholder="Username" required />
+                <input type="password" id="newDoctorPassword" placeholder="Password" required />
+                <button type="submit">Save Doctor</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 🔗 Scripts -->
+    <script th:src="@{/static/js/modal.js}"></script>
+    <script th:src="@{/static/js/card/doctorCard.js}"></script>
+    <script th:src="@{/static/js/service/doctorService.js}"></script>
+    <script th:src="@{/static/js/dashboard/adminDashboard.js}"></script>
+    <script th:src="@{/static/js/header.js}"></script>
+</body>
+</html>

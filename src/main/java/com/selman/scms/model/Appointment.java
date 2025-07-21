@@ -9,6 +9,7 @@ package com.selman.scms.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
@@ -28,6 +29,7 @@ public class Appointment {
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
+    @FutureOrPresent(message = "Appointment time must be in the present or future")
     @NotNull
     private LocalDateTime appointmentTime;
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/patientDashboard.css}">
+</head>
+<body>
+<div id="patient-header"></div>
+
+<main class="patient-container">
+    <h1>Welcome to Your Patient Portal</h1>
+
+    <!-- 🔍 Reçeteler -->
+    <section id="prescriptionSection">
+        <h2>My Prescriptions</h2>
+        <div id="patientPrescriptionList">
+            <!-- JS ile reçete kartları buraya eklenecek -->
+        </div>
+    </section>
+
+    <!-- 📅 Randevular -->
+    <section id="appointmentSection">
+        <h2>My Appointments</h2>
+        <div id="patientAppointmentList">
+            <!-- JS ile randevular buraya eklenecek -->
+        </div>
+    </section>
+</main>
+
+<script th:src="@{/static/js/modal.js}"></script>
+<script th:src="@{/static/js/dashboard/patientDashboard.js}"></script>
+<script th:src="@{/static/js/service/appointmentService.js}"></script>
+<script th:src="@{/static/js/service/prescriptionService.js}"></script>
+<script th:src="@{/static/js/header.js}"></script>
+</body>
+</html>

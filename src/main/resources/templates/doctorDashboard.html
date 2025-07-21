@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/doctorDashboard.css}">
+</head>
+<body>
+<div id="doctor-header"></div>
+
+<main class="doctor-container">
+    <h1>Doctor Panel – My Appointments</h1>
+
+    <!-- 🔍 Filters -->
+    <section class="appointment-filters">
+        <input type="text" id="searchByPatientName" placeholder="Search by patient name" />
+
+        <input type="date" id="filterByDate" placeholder="Filter by date" />
+    </section>
+
+    <!-- 📋 Appointment List -->
+    <section id="appointmentList" class="appointment-list">
+        <!-- JS ile randevular buraya yazılacak -->
+    </section>
+</main>
+
+<!-- 📄 Prescription Modal -->
+<div id="prescriptionModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close" id="closePrescriptionModal">&times;</span>
+        <h2>Previous Prescriptions</h2>
+        <div id="prescriptionContent">
+            <p><strong>Patient:</strong> <span id="modalPatientName"></span></p>
+            <p><strong>Doctor:</strong> <span id="modalDoctorName"></span></p>
+            <p><strong>Date Issued:</strong> <span id="modalDateIssued"></span></p>
+            <p><strong>Notes:</strong> <span id="modalNotes"></span></p>
+            <p><strong>Revisit Recommended:</strong> <span id="modalRevisit"></span></p>
+
+            <h3>Medications</h3>
+            <ul id="modalMedicationsList">
+                <!-- JS ile her ilacın bilgisi buraya eklenecek -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 🔗 Scripts -->
+<script th:src="@{/static/js/modal.js}"></script>
+<script th:src="@{/static/js/dashboard/doctorDashboard.js}"></script>
+<script th:src="@{/static/js/service/patientService.js}"></script>
+<script th:src="@{/static/js/service/appointmentService.js}"></script>
+<script th:src="@{/static/js/header.js}"></script>
+</body>
+</html>
