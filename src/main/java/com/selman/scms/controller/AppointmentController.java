@@ -18,7 +18,7 @@ public class AppointmentController {
 
     @PostMapping
     public Appointment createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO) {
-        return appointmentService.createAppointment(appointmentDTO);
+        return appointmentService.bookAppointment(appointmentDTO);
     }
 
     @GetMapping
