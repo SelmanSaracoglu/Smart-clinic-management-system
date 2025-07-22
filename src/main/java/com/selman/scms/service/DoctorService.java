@@ -5,7 +5,6 @@ import com.selman.scms.model.Appointment;
 import com.selman.scms.model.Doctor;
 import com.selman.scms.repository.AppointmentRepository;
 import com.selman.scms.repository.DoctorRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -10,13 +10,9 @@ import java.util.Date;
 @Service
 public class TokenService {
 
-    // Geçici sabit key – login ve validate işlemlerinde aynı olmalı
     private final String secretKey = "secret123";
-
-    // Token süresi (örnek: 1 saat)
     private final long expirationMillis = 3600000;
 
-    // ✅ Token oluşturma – ÖDEV KRİTERİ
     public String generateToken(String email, String role) {
         return Jwts.builder()
                 .setSubject(email)
@@ -27,7 +23,6 @@ public class TokenService {
                 .compact();
     }
 
-    // ✅ Token geçerli mi (rol eşleşiyor mu?)
     public boolean isTokenValid(String token, String requiredRole) {
         try {
             Claims claims = getAllClaims(token);
@@ -38,17 +33,15 @@ public class TokenService {
         }
     }
 
-    // ✅ Token'dan email veya username al
     public String getUsernameFromToken(String token) {
         try {
             Claims claims = getAllClaims(token);
-            return claims.getSubject(); // Genelde email
+            return claims.getSubject();
         } catch (Exception e) {
             return null;
         }
     }
 
-    // 🔐 Tüm claim'leri al
     private Claims getAllClaims(String token) {
         return Jwts.parser()
                 .setSigningKey(secretKey.getBytes())
@@ -56,3 +49,4 @@ public class TokenService {
                 .getBody();
     }
 }
+
