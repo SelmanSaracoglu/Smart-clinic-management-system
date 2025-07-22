@@ -1,0 +1,33 @@
+name: Frontend Lint
+
+on: [push, pull_request]
+
+jobs:
+  lint-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
+
+      - name: Lint HTML files
+        run: htmlhint "**/*.html" || true
+
+      - name: Install Stylelint
+        run: npm install -g stylelint stylelint-config-standard
+
+      - name: Lint CSS files
+        run: stylelint "**/*.css" || true
+
+      - name: Install ESLint
+        run: npm install -g eslint
+
+      - name: Lint JS files
+        run: eslint "**/*.js" || true
