@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: Root1234!
+      MYSQL_DATABASE: scms
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  app:
+    build: .
+    container_name: smartclinic-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - mongo
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/scms
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Root1234!
+      SPRING_DATA_MONGODB_URI: mongodb://mongo-db:27017/smartclinic
+
+volumes:
+  mysql-data:
+  mongo-data:
