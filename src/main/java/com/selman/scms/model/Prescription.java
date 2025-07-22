@@ -29,21 +29,10 @@ public class Prescription {
 
     @NotNull
     private String doctorName;
-
     private LocalDate dateIssued;
-
     private List<Medication> medications;
-
     private String notes;
-
     private boolean revisitRecommended;
-
-    public static class Medication {
-        public String name;
-        public String dosage;
-        public String frequency;
-        public String duration;
-    }
 
 
     // Getters and Setters

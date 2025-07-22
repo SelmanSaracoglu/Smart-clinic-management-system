@@ -96,4 +96,6 @@ public class Appointment {
     public void setReason(String reason) {
         this.reason = reason;
     }
+
+
 }
